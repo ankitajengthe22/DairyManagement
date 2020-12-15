@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            background: #83a4d4;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #b6fbff, #83a4d4);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #b6fbff, #83a4d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            overflow:hidden;
+          }
+          .farmer{
+              padding-top:100px;
+          }
+        .box{
+            min-height: 600px;
+          background:whitesmoke;
+                  max-width:40%;
+                text-align:center;
+                margin-top:9%;
+          
+                padding-top:10%;
+                padding-bottom:10%;
+                padding-left: 9%;
+                padding-right:0;
+                border-radius:20px;
+        }
+        .field{
+            min-height: 40px;
+            min-width: 250px;
+           
+        }
+        label{
+            margin-left: 10px;
+        }
+
+    </style>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dairy</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+   
+            <div class="container shadow">
+               
+                <div class="box shadow-lg  ">
+                    
+                
+                   
+                 <form method="POST" action="{% url 'vendorinterface' %}">
+                     {% csrf_token %}
+                  
+           
+                       <div class="form-group farmer row">
+                           <label for="text" class="col-sm-2 col-form-label">ID</label> <br> <br>
+                           
+                           <div class="col-sm-5">
+<select id="id"class="form-control" name="id" placeholder="Vendor's ID">
+         {% for i in vendor %}
+           <option value="{{ i.id }}">{{ i.id }}</option>
+          {% endfor %}
+         </select>                           </div>
+                       </div>
+                       <br> 
+                       <div class="form-group row">
+                         <label for="text" class="col-sm-2 col-form-label"></label> <br>
+                           <div class="col-sm-5 offset-sm-2"> 
+                               <button type="submit" class="form-control field btn-primary" class="btn btn-primary shadow">Submit</button>
+                           </div>
+                       </div>
+                   </form>   
+                </div>
+             </div>
+
+
+        </div>
+        <div class="col-lg-6">
+            
+    <div class="container shadow">
+        <div class="box shadow-lg ">
+         <form method="POST" action="{% url 'dologin' %}">
+             {% csrf_token %}
+               <div class="form-group row">
+                <label for="text" class="col-sm-2 col-form-label">USERNAME: </label>  <br><br>
+                   <div class="col-sm-5">
+                       <input type="text" class="form-control field" id="name"  name="username" placeholder="username" required>
+                   </div>
+               </div>
+               <br> 
+     
+               <div class="form-group row">
+                   <label for="text" class="col-sm-2 col-form-label">PASSWORD:</label> <br> <br>
+                   
+                   <div class="col-sm-5">
+                       <input type="password"  name="password"   class="form-control field " placeholder="password" required>
+                   </div>
+               </div>
+               <br> 
+               <div class="form-group row">
+                 <label for="text" class="col-sm-2 col-form-label"></label> <br>
+                   <div class="col-sm-5 offset-sm-2"> 
+                       <button type="submit" class="form-control field btn-primary" class="btn btn-primary shadow">Submit</button>
+                   </div>
+               </div>
+           </form>   
+        </div>
+     </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

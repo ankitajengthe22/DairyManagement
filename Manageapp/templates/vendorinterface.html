@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    body{
+      background: #83a4d4;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #b6fbff, #83a4d4);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #b6fbff, #83a4d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      
+    }
+    .payform{
+      padding-top:10px;
+      padding-left: 20px;
+      padding-bottom: 40px;
+    }
+    .bgl{
+      font-size: 20px;
+      margin-top:50px;
+      background:white;
+      border-radius:15px;
+    }
+     
+    .margindiv{
+      margin-top:10rem;
+    }
+    .box{
+   
+      background: white;    
+      padding:5rem;
+      border-radius: 25px;
+      margin:5rem;}
+         
+      .nvbr{
+        text-align:center;
+        border-radius:none;
+        
+        font-size: 25px;
+        color: white;
+       padding:20px;
+
+      }
+      .alignnvbr{
+        margin-left:35%;
+        
+      
+        
+      }
+    
+     
+      .navbar-brand{
+        font-size: 40px;
+        background: linear-gradient(to right, #F7BB97, #DD5E89); 
+      
+        -webkit-background-clip: text;
+        -webkit-text-fill-color:transparent;
+        background-clip:text;
+      }
+      a{
+        background: linear-gradient(to right, #F7BB97, #DD5E89); 
+      
+        -webkit-background-clip: text;
+        -webkit-text-fill-color:transparent;
+        background-clip:text;
+      }
+      nav:hover{
+        
+        font-size:26px;
+      }
+    
+  </style>
+</head>
+<body>
+
+
+<div class="container bgl">
+  <h2 class="text-center">{{ name }}</h2>
+   <table class="table table-borderless">
+     <thead>
+       <tr>
+        <th width="10%">id</th> 
+         <th width="20%">Date</th>
+         <th width="10%">milktype</th>
+         <th width="10%">quantity</th>
+         <th width="10%">fat</th>
+         <th width="10%">snf</th>
+         <th width="10%">bill</th>
+       </tr>
+     </thead>
+     <tbody>
+       {% for i in obj %}
+   <input type="hidden" name="name" value="{{ i.name }}">
+       <tr>
+        <td>{{ i.id }}</td>
+         <td>{{ i.date }}</td>
+          <td>{{ i.milktype }}</td>
+           <td>{{ i.quantity }}</td>
+            <td>{{ i.fat }}</td>
+             <td>{{ i.snf }}</td>
+              <td>{{ i.bill }}</td>
+             
+       </tr>
+       {% endfor %}
+       <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+         <td></td>
+         
+            <td> <h3>Total =</h3>
+
+            </td>
+             <td><h3>{{obj1}}</h3></td>
+      </tr>
+      
+ 
+ 
+  
+ </tbody>
+ </table>
+ </div>
+ 
+ 
+ </body>
+ </html>
